@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MyPDFTools Clone</title>
+
+    <!-- Tabler Icons Webfont -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.45.0/tabler-icons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- Sortable.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <!-- PDF-lib -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.24.1/pdf-lib.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">MyPDFTools</div>
+      <nav>
+        <ul>
+          <li><a href="#">Merge PDF</a></li>
+          <li><a href="#">Split PDF</a></li>
+          <li><a href="#">Compress PDF</a></li>
+          <li><a href="#">Convert PDF</a></li>
+          <li><a href="#">Edit PDF</a></li>
+        </ul>
+      </nav>
+      <div class="auth-actions">
+        <button>Login</button>
+        <button class="primary">Sign Up</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>All your 📄 PDF tools — in one place</h1>
+
+      <div class="tool-grid">
+        <div class="tool-card" data-action="merge">
+          <i class="ti ti-file-plus"></i><span>Merge PDF</span>
+        </div>
+        <div class="tool-card" data-action="split">
+          <i class="ti ti-arrows-split"></i><span>Split PDF</span>
+        </div>
+        <div class="tool-card" data-action="compress">
+          <i class="ti ti-archive"></i><span>Compress PDF</span>
+        </div>
+        <div class="tool-card">
+          <i class="ti ti-refresh"></i><span>Convert PDF</span>
+        </div>
+        <div class="tool-card">
+          <i class="ti ti-pencil"></i><span>Edit PDF</span>
+        </div>
+      </div>
+
+      <div class="upload-box" id="uploadBox">
+        <p>
+          📂 Drag & drop a PDF here or <span class="browse-btn">browse</span>
+        </p>
+        <input
+          type="file"
+          id="fileInput"
+          accept="application/pdf"
+          multiple
+          hidden
+        />
+
+        <div id="fileList" class="file-list"></div>
+
+        <div class="page-range-container">
+          <label for="pageRange">Page Range (e.g. 1-3, 5):</label>
+          <input
+            type="text"
+            id="pageRange"
+            placeholder="Leave blank for all pages"
+          />
+        </div>
+
+        <div id="spinner" class="spinner" style="display: none">
+          Loading PDF...
+        </div>
+        <canvas
+          id="pdfCanvas"
+          style="
+            display: none;
+            margin-top: 1rem;
+            max-width: 100%;
+            border: 1px solid #ccc;
+          "
+        ></canvas>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Pricing</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="apps">
+        <a href="#"><i class="ti ti-brand-apple"></i> iOS App</a>
+        <a href="#"><i class="ti ti-brand-android"></i> Android App</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
